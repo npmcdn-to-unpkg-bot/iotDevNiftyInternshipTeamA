@@ -1,0 +1,2 @@
+# iotDevNiftyInternshipTeamA
+「IoTデバイスを使った5days開発インターン」2016のチームA専用開発リポジトリ
