@@ -37,27 +37,17 @@ angular.module('mobileApp', ['ionic', 'mobileApp.controllers', 'mobileApp.servic
     url: '/dash',
     views: {
       'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
+        templateUrl: 'templates/tab-dash.html'
       }
     }
   })
 
-  .state('tab.chats', {
-      url: '/chats',
+  .state('tab.message', {
+      url: '/message',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
-        }
-      }
-    })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
+        'tab-message': {
+          templateUrl: 'templates/tab-message.html',
+          controller: 'MessageCtrl'
         }
       }
     })
