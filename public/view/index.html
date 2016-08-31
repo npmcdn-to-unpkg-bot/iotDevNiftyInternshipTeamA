@@ -1,0 +1,14 @@
+<div ng-show="indexCtrl.settingPanel" class="panel">
+	<button ng-click="indexCtrl.modeChange(1)">OBJ mode</button>
+	<button ng-click="indexCtrl.modeChange(2)">RA mode</button>
+	<button ng-click="indexCtrl.modeChange(3)">TA mode</button>
+	<button ng-click="indexCtrl.clear()">CLEAR!</button>
+	<button ng-click="indexCtrl.findPath()">findPath!</button>
+</div>
+<div id="grid">
+</div>
+<div ng-hide="indexCtrl.settingPanel">
+	<h2>マス目の細かさを設定(default 50)</h2>
+	<input ng-model="indexCtrl.detailParam">
+	<button ng-click="indexCtrl.generateGrid()">generate Grid</button>
+</div>
