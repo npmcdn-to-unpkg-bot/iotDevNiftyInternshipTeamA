@@ -1,3 +1,6 @@
+var key = require("./config.json");
+// key.iftttKey -> ifttt keyです
+
 //apiサーバー
 var target = 'http://192.168.12.5:5000';
 
