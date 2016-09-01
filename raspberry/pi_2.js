@@ -1,5 +1,5 @@
-//apiサーバー
-var target = 'http://192.168.12.5:5000';
+//2は1へ
+var target = 'http://192.168.12.1:5000';
 
 // 8番のGPIOピンを出力として登録
 var fs = require('fs'); 
@@ -34,7 +34,6 @@ function relaySend(message){
 	console.log(err);
 	 });
 }
-
 app.post('/', function(req, res) {
 	console.log("post");
 	console.dir(req.body.message);

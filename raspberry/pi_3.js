@@ -1,5 +1,5 @@
-//apiサーバー
-var target = 'http://192.168.12.5:5000';
+//3は2へ
+var target = 'http://192.168.12.2:5000';
 
 // 8番のGPIOピンを出力として登録
 var fs = require('fs'); 

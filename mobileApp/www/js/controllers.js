@@ -7,11 +7,11 @@ angular.module('mobileApp.controllers', [])
 })
 
 .controller('MessageCtrl', function($scope,$http) {
-  $scope.message = "助けて！";
+  $scope.message = "助けて！!";
 
-  $scope.send = function(){
-    console.log("send message : ",$scope.message);
-    $http.post('http://192.168.12.1:5000',{message : $scope.message}).then(handleSuccess, handleError);
+  $scope.send = function(message){
+    console.log("send message : ",message);
+    $http.post('http://192.168.12.3:5000',{message : message}).then(handleSuccess, handleError);
   };
 
   function handleSuccess(res) {
