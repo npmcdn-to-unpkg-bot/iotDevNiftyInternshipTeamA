@@ -1,5 +1,6 @@
 var PF = require('pathfinding');
 var Q = require('q');
+var _ = require('underscore');
 
 var service = {};
 
