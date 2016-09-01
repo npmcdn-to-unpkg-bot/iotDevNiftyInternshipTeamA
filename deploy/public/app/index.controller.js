@@ -238,8 +238,11 @@ function Controller(_,pathService) {
          console.log("A");
          console.dir(data.A);
          
-         pathService.findPath(data);
-         
+        pathService.findPath(data)
+         .then(function(DA) {
+			console.log("DAが帰ってくる");
+			console.log(DA);
+		});
          
          
 //	 	//最高のルートを探すためのデータを作る

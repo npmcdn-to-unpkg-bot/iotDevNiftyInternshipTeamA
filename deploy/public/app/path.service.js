@@ -9,7 +9,7 @@ function Service($http) {
 
     function findPath(sendData) {
       console.log("findPath 발동");
-        return $http.post('/api/path/findpath',sendData).then(handleSuccess, handleError);
+        return $http.post('/api/path/findpath',{data:sendData}).then(handleSuccess, handleError);
     }
     
     function handleSuccess(res) {
