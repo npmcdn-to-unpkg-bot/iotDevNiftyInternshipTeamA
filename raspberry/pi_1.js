@@ -1,5 +1,5 @@
 var express = require('express');
-var request = require('request');
+var _request = require('request');
 var app = express();
 var bodyParser = require('body-parser');
 
@@ -33,7 +33,6 @@ function blink(){
 app.post('/', function(request, response) {
     blink();
     console.log(request.body.message);
-    var _request = require('request'); 
     var options = {
         uri: 'http://maker.ifttt.com/trigger/' + key.eventName + '/with/key/' + key.iftttKey,
         form: {
