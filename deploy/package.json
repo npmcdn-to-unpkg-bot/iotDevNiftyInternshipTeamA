@@ -2,8 +2,8 @@
   "description": "IoTrescueSystemDeploy",
   "dependencies": {
     "body-parser": "^1.13.2",
-    "q": "^1.4.1",
     "express": "^4.14.0",
+    "q": "^1.4.1",
     "underscore": "^1.8.3"
   },
   "repository": {
