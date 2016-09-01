@@ -243,44 +243,7 @@ function Controller(_,pathService) {
 			console.log("DAが帰ってくる");
 			console.log(DA);
 		});
-         
-         
-//	 	//最高のルートを探すためのデータを作る
-//        var conditionData = [];//一応5重配列を用意する。
-//         
-//	 	for(var i = 0;i < data.TA.length;i++){
-//            
-//            conditionData[i] = [];
-//            
-//	 		for(var j = 0;j < data.A.length;j++){
-//                
-//                conditionData[i][j] = [];
-//                
-//	 			AstarFindPath(data.A[j].x,data.A[j].y,data.TA[i].x,data.TA[i].y)
-//                .then(function(pathData){
-//                    console.log(i,j,"でのパスは")
-//                    var NA = pathData;
-//                    console.log(NA);
-//                    for(var k = 0;k < NA.length; k++){
-//                    
-//                        conditionData[i][j][k] = [];
-//
-//                        for(var l = 0;l < data.RA.length;l++){
-//
-//                            var TAANARApath = AstarFindPath(NA[k][0],NA[k][1],data.RA[l].x,data.RA[l].y);
-//                            conditionData[i][j][k][l] = TAANARApath.length;
-//
-//                        }
-//                    }
-//                });
-//            
-//	 		}
-//	 	};
-//         
-//        console.log("conditionData");
-//        console.dir(conditionData);
-         
-         
+            
 	 };
 
 	//初期化開始
