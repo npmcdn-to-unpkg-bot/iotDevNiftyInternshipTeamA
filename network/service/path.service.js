@@ -26,7 +26,7 @@ function findNetwork(data){
     //クラスカル法の応用をする。山登り法の一種だと言える。
     //ここで、最小経路探索問題はAstar Algorithmで解決。
     //最適解への証明は背理法を用いる
-
+    var danger = [];
     var DA = [];
     //TAがなくなれば良い。ネットに繋がった地域CAに全部繋がったらオッケー
     while(data.TA.length){
@@ -54,7 +54,7 @@ function findNetwork(data){
 		    			index : i,
 		    			path : path
 		    		});
-		    		
+
 	    			//一回でもpathが存在するならここが反応するはず
 	    			checkTAhasPath = 0;
 	    		}
@@ -63,23 +63,28 @@ function findNetwork(data){
 
 	    	if(checkTAhasPath){
 	    		//ここに来たということはdata.TA[i]は解がないということ
-	    		data.TA.splice(i, 1);
+	    		danger.push(data.TA.splice(i, 1)[0]);//[0]に注意
 	    	}
 
-	    };    	
+	    }; 
+	    //DACsがnullでない時	
 	    //path.lengthがminとなるiを探し、
 	    //TAから除外し、
 		//DAC.pathをDAにappend
 		//そしてそのDAC.pathをCAに入れる
-		var DAC = _.min(DACs, function (DAC) { 
-		    return DAC.path.length; 
-		}); 
-		data.TA.splice(DAC.index, 1);
-		console.log("debug : ",data.TA.length);
-		DA = DA.concat(DAC.path);
-		data.CA = data.CA.concat(DAC.path);
+		if(DACs.length != 0){
+			var DAC = _.min(DACs, function (DAC) { 
+			    return DAC.path.length; 
+			}); 
+			data.TA.splice(DAC.index, 1);
+			console.log("debug : data.TA.length",data.TA.length);
+			DA = DA.concat(DAC.path);
+			console.log("debug : DA",DA);
+			data.CA = data.CA.concat(DAC.path);
+		}
     	if(data.TA.length == 0){    	
-    		deferred.resolve(DA);
+    		//これを返す
+    		deferred.resolve({DA:DA,danger:danger});
     	}
     }
 
@@ -90,7 +95,10 @@ function findNetwork(data){
 function findPath(S,T,MAP){
 	console.log("debug S.x, S.y, T.x, T.y: ",S.x, S.y, T.x, T.y)
 	var grid = new PF.Grid(MAP);
-	var finder = new PF.AStarFinder();
+	var finder = new PF.AStarFinder({
+		diagonalMovement: PF.DiagonalMovement.IfAtMostOneObstacle,
+		heuristic: PF.Heuristic.euclidean
+	});
 	var path = finder.findPath(S.x, S.y, T.x, T.y, grid);
 	path = _.initial(path);
 	path = _.map(path, function(A){
@@ -100,6 +108,6 @@ function findPath(S,T,MAP){
 		}
 		return DA;
 	});
-	console.log(path);
+	console.log("debug path: ",path);
 	return path;
 }

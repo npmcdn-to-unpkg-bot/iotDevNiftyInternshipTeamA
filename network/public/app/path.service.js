@@ -14,13 +14,11 @@ function Service($http) {
     
     function handleSuccess(res) {
         console.log("handleSuccess")
-        console.log(res.data)
         return res.data;
     }
 
     function handleError(res) {
         console.log("handleError")
-        console.log(res.data)
         return res.data;
     }
 }

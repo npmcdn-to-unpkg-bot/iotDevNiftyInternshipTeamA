@@ -1,6 +1,15 @@
-<div class="panel">
-	<button ng-click="indexCtrl.generateGrid()">Generate(default)</button>
-	<button ng-click="indexCtrl.pathFind()">pathFind</button>
+<div ng-show="indexCtrl.settingPanel" class="panel">
+	<button ng-click="indexCtrl.modeChange(1)">OBJ mode</button>
+	<button ng-click="indexCtrl.modeChange(2)">RA mode</button>
+	<button ng-click="indexCtrl.modeChange(3)">TA mode</button>
+	<button ng-click="indexCtrl.clear()">CLEAR!</button>
+	<button ng-click="indexCtrl.pathFind()">pathFind!</button>
 </div>
 <div id="grid">
+</div>
+<div ng-hide="indexCtrl.settingPanel">
+	<h2>マス目の細かさを設定(default 50)</h2>
+	<input ng-model="indexCtrl.detailParam">
+	<button ng-click="indexCtrl.generateGrid(indexCtrl.detailParam)">generate Grid</button>
+	<button ng-click="indexCtrl.generateGrid()">Generate(default)</button>
 </div>

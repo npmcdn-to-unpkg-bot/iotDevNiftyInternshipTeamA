@@ -121,6 +121,10 @@ function Controller(_,pathService) {
 			DA : {
 		        fill: 'blue',
 		        'stroke-opacity': 0.2 // the border							
+			},
+			danger : {
+		        fill: 'black',
+		        'stroke-opacity': 0.2 // the border							
 			}
 		}
 
@@ -137,6 +141,8 @@ function Controller(_,pathService) {
 			indexCtrl.clickMode = {index : 2, name : "RA"};
 		}else if(index == 3){
 			indexCtrl.clickMode = {index : 3, name : "TA"};
+		}else if(index == 4){
+			indexCtrl.clickMode = {index : 4, name : "DA"};
 		}else{
 			console.log("error")
 		}
@@ -236,6 +242,8 @@ function Controller(_,pathService) {
 					indexCtrl.data[y][x].rect.attr(indexCtrl.style["RA"]);
 				}else if(indexCtrl.data[y][x].status == 3){
 					indexCtrl.data[y][x].rect.attr(indexCtrl.style["TA"]);
+				}else if(indexCtrl.data[y][x].status == 4){
+					indexCtrl.data[y][x].rect.attr(indexCtrl.style["DA"]);
 				}else{
 					console.log("statuが0,1,2,3でない奴が存在するぞ");
 				}
@@ -296,12 +304,18 @@ function Controller(_,pathService) {
 		}
 
         pathService.findNetwork(sendData)
-         .then(function(DA) {
-			console.log("DAが帰ってくる");
-			console.log(DA);
-			for(var i = 0;i < DA.length;i++){
-				indexCtrl.data[DA[i].y][DA[i].x].rect.attr(indexCtrl.style["DA"]);	
+         .then(function(data) {
+			console.log("帰ってきたデータ");
+			console.log(data);
+			for(var i = 0;i < data.DA.length;i++){
+				indexCtrl.data[data.DA[i].y][data.DA[i].x].status = 4;
+				indexCtrl.data[data.DA[i].y][data.DA[i].x].rect.attr(indexCtrl.style["DA"]);	
 			}
+			for(var i = 0;i < data.danger.length;i++){
+				//statusは3(TA)そのままでいいでしょう
+				indexCtrl.data[data.danger[i].y][data.danger[i].x].rect.attr(indexCtrl.style["danger"]);	
+			}
+			alert("Used "+data.DA.length+" rescue and "+data.danger.length+"Target area could not be connected.");
 		});
             
 	 };
