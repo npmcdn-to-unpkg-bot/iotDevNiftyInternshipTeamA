@@ -1,15 +1,37 @@
 <div ng-show="indexCtrl.settingPanel" class="panel">
-	<button ng-click="indexCtrl.modeChange(1)">OBJ mode</button>
-	<button ng-click="indexCtrl.modeChange(2)">RA mode</button>
-	<button ng-click="indexCtrl.modeChange(3)">TA mode</button>
-	<button ng-click="indexCtrl.clear()">CLEAR!</button>
-	<button ng-click="indexCtrl.pathFind()">pathFind!</button>
+	<button ng-click="indexCtrl.modeChange(1)" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+	  障害物on/off
+	</button>
+	<button ng-click="indexCtrl.modeChange(2)" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+	  Rescue出動地on/off
+	</button>
+	<button ng-click="indexCtrl.modeChange(3)" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+	  Target area on/off
+	</button>
+	<button ng-click="indexCtrl.clear()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+	  All Clear
+	</button>
+	<button ng-click="indexCtrl.pathFind()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+	  Network Deploy
+	</button>
 </div>
 <div id="grid">
 </div>
-<div ng-hide="indexCtrl.settingPanel">
+<div ng-show="indexCtrl.result" class="result">
+	<h1>{{indexCtrl.result}}</h1>
+</div>	
+<div ng-hide="indexCtrl.settingPanel" class="setting">
 	<h2>マス目の細かさを設定(default 50)</h2>
-	<input ng-model="indexCtrl.detailParam">
-	<button ng-click="indexCtrl.generateGrid(indexCtrl.detailParam)">generate Grid</button>
-	<button ng-click="indexCtrl.generateGrid()">Generate(default)</button>
+	<form>
+	  <div class="mdl-textfield mdl-js-textfield">
+	    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="detail" ng-model="indexCtrl.detailParam">
+	    <span class="mdl-textfield__error">Input is not a number!</span>
+	  </div>
+	</form>
+	<button ng-click="indexCtrl.generateGrid(indexCtrl.detailParam)" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+	  generate Grid
+	</button>
+	<button ng-click="indexCtrl.generateGrid()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+	  Generate(default)
+	</button>
 </div>

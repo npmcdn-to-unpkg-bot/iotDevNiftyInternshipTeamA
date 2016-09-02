@@ -315,7 +315,9 @@ function Controller(_,pathService) {
 				//statusは3(TA)そのままでいいでしょう
 				indexCtrl.data[data.danger[i].y][data.danger[i].x].rect.attr(indexCtrl.style["danger"]);	
 			}
-			alert("Used "+data.DA.length+" rescue and "+data.danger.length+"Target area could not be connected.");
+			//結果を表示
+			indexCtrl.result =  "Used "+data.DA.length+" rescue and "+data.danger.length+"Target area could not be connected.";
+			alert(indexCtrl.result);
 		});
             
 	 };
