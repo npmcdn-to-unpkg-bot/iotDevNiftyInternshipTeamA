@@ -1,5 +1,6 @@
-//webからもらってくる予定のデータ
-var data = {
+//webからデータをもらうようにする予定だが、
+//一応sampleデータはもらうとしよう
+var sampleData = {
     "RA" : [
       {
             "name":"成子坂交番",
@@ -15,15 +16,9 @@ var data = {
             "y":55
       }
 	],
-	"TA" : [
-
-	],
-	"A" : [
-
-	],
-    "map":[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
- 		   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
- 		   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "MAP":[[0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ 		   [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+ 		   [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
  		   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
  		   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
  		   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -102,6 +97,10 @@ function Controller(_,pathService) {
 	indexCtrl.init = function (){
 		console.log("indexCtrl.init();");
 
+		//どれぐらいに詳細なマス目を作るか
+		indexCtrl.detailParam = 50;
+
+		//styleを定義
 		indexCtrl.style = {
 			normal : {
 		        fill: 'white',
@@ -122,36 +121,84 @@ function Controller(_,pathService) {
 			DA : {
 		        fill: 'blue',
 		        'stroke-opacity': 0.2 // the border							
+			},
+			danger : {
+		        fill: 'black',
+		        'stroke-opacity': 0.2 // the border							
 			}
 		}
 
+		//マス目の数を保管する
 		indexCtrl.num = {};
 	};
 
-	//グリッド生成関数
-	indexCtrl.generateGrid = function(){
+	//モード切り替え
+	indexCtrl.modeChange = function(index){
+		console.log("modeChange to ",index);
+		if(index == 1){
+			indexCtrl.clickMode = {index : 1, name : "OB"};
+		}else if(index == 2){
+			indexCtrl.clickMode = {index : 2, name : "RA"};
+		}else if(index == 3){
+			indexCtrl.clickMode = {index : 3, name : "TA"};
+		}else if(index == 4){
+			indexCtrl.clickMode = {index : 4, name : "DA"};
+		}else{
+			console.log("error")
+		}
+	}
 
-		//以下ではGrid生成領域毛亭のためにスクリーン領域を求める
+	//グリッド生成関数
+	indexCtrl.generateGrid = function(option){
+
+		//これでPanelが消える。
+		indexCtrl.settingPanel = 1;
+
+		//Obstacle設定解除モード,TA設定解除モード,RA設定解除モード
+		indexCtrl.clickMode = {index : 3, name : "TA"};
+
+		//以下ではGrid生成領域のためにスクリーン領域を求める
 		var width  = $(window).width();
 		var height = $(window).height();
 		width = (width > window.screen.availWidth) ? width : window.screen.availWidth;
 		height = (height > window.screen.availHeight) ? height : window.screen.availHeight;
 		console.log(width,height);
 
-		//最大限拡大した画面で、横に何個、縦に何個見れるようにするか
-		indexCtrl.num.cols = data.map[0].length;
-		indexCtrl.num.rows = data.map.length;
-		console.log("indexCtrl.num.cols,indexCtrl.num.rows : ",indexCtrl.num.cols,indexCtrl.num.rows);
+		if(option){//何らかのdetailの設定があれば
+			//detailを指定した, custom map mode
+			//最大限拡大した画面で、横に何個、縦に何個見れるようにするか
+			indexCtrl.num.cols = indexCtrl.detailParam;
+			indexCtrl.num.rows = parseInt(indexCtrl.num.cols*height/width + 1);	
 
-		//マス目の配列を作成
-		indexCtrl.data = [];
-		for(var y=0;y<indexCtrl.num.rows;y++){
-			var rects = [];
-			for(var x=0;x<indexCtrl.num.cols;x++){
-				rects.push({status : data.map[y][x]});
+			//マス目の配列を作成
+			indexCtrl.data = [];
+			for(var i=0;i<indexCtrl.num.rows;i++){
+				var rects = [];
+				for(var j=0;j<indexCtrl.num.cols;j++){
+					rects.push({status : 0});
+				}
+				indexCtrl.data.push(rects);
 			}
-			indexCtrl.data.push(rects);
+		}else{
+			//ここではsampleMapの場合
+			indexCtrl.num.cols = sampleData.MAP[0].length;
+			indexCtrl.num.rows = sampleData.MAP.length;
+
+			//マス目の配列を作成
+			indexCtrl.data = [];
+			for(var y=0;y<indexCtrl.num.rows;y++){
+				var rects = [];
+				for(var x=0;x<indexCtrl.num.cols;x++){
+					rects.push({status : sampleData.MAP[y][x]});
+				}
+				indexCtrl.data.push(rects);
+			}
+			//sampleDataにはRAの情報もあるから
+			for(var i = 0;i<sampleData.RA.length;i++){
+	            indexCtrl.data[sampleData.RA[i].y][sampleData.RA[i].x].status = 2;
+	        }
 		}
+		console.log("indexCtrl.num.cols,indexCtrl.num.rows : ",indexCtrl.num.cols,indexCtrl.num.rows);
 
 		//ここで必要なマス目のサイズを決めます。
 		var nodeSize = width/indexCtrl.num.cols;
@@ -173,72 +220,104 @@ function Controller(_,pathService) {
 					var y = this.data("y");
 					console.log("this is"+x+","+y);
 					
-					//clickしたときどんな処理をするか
-					if(indexCtrl.data[y][x].status == 1 || indexCtrl.data[y][x].status == 2 ){
-						alert("そこは指定できません。");
-					}else if(indexCtrl.data[y][x].status == 0){
-						//TAに変更
-						indexCtrl.data[y][x].status = 3
-						indexCtrl.data[y][x].rect.attr(indexCtrl.style["TA"]);
-					} else {
-						//ここは多分status 0でも１でもないなら3しかないのでTAをクリックしたらTAを解除しnormalに戻る処理
-						//Astarとは違って、status == 2はない
+					//clickしたとき、indexCtrl.data[y][x] == indexCtrl.clickMode.indexなら
+					//それを解除
+					//もしそうでないなら、前の設定を初期化し、今のモードのノードで設定
+					if(indexCtrl.data[y][x].status == indexCtrl.clickMode.index){
 						indexCtrl.data[y][x].status = 0;
-						indexCtrl.data[y][x].rect.attr(indexCtrl.style["normal"]);						
+						indexCtrl.data[y][x].rect.attr(indexCtrl.style.normal);
+					}else{
+						console.log("change node style to ",indexCtrl.clickMode.name)
+						indexCtrl.data[y][x].status = indexCtrl.clickMode.index;
+						indexCtrl.data[y][x].rect.attr(indexCtrl.style[indexCtrl.clickMode.name]);
 					}
 				});
 
 				//以下はmapを読み込み、gridで表示するときにどのように色を塗るかの処理
 				if(indexCtrl.data[y][x].status == 0){
-					indexCtrl.data[y][x].rect.attr(indexCtrl.style["normal"])
-                }else {
-					indexCtrl.data[y][x].rect.attr(indexCtrl.style["OB"])
+					indexCtrl.data[y][x].rect.attr(indexCtrl.style["normal"]);
+                }else if(indexCtrl.data[y][x].status == 1){
+					indexCtrl.data[y][x].rect.attr(indexCtrl.style["OB"]);
+				}else if(indexCtrl.data[y][x].status == 2){
+					indexCtrl.data[y][x].rect.attr(indexCtrl.style["RA"]);
+				}else if(indexCtrl.data[y][x].status == 3){
+					indexCtrl.data[y][x].rect.attr(indexCtrl.style["TA"]);
+				}else if(indexCtrl.data[y][x].status == 4){
+					indexCtrl.data[y][x].rect.attr(indexCtrl.style["DA"]);
+				}else{
+					console.log("statuが0,1,2,3でない奴が存在するぞ");
 				}
 
 			}	
 		}
         
-        //RAをグリッド上に表示し、statusを2とすることで見分けできる。
-        for(var i = 0;i<data.RA.length;i++){
-            indexCtrl.data[data.RA[i].y][data.RA[i].x].rect.attr(indexCtrl.style["RA"]);
-            indexCtrl.data[data.RA[i].y][data.RA[i].x].status = 2;
-        }
-        
 	};
+
+	indexCtrl.clear = function(){
+		for(var y=0;y<indexCtrl.num.rows;y++){
+			for(var x=0;x<indexCtrl.num.cols;x++){
+				indexCtrl.data[y][x].status = 0;
+				indexCtrl.data[y][x].rect.attr(indexCtrl.style.normal);
+			}
+		}
+	}
     
-	 indexCtrl.search = function(){
-	 	//まずはweb appのgridからTAの座標を読み取り配列とする
+	indexCtrl.pathFind = function(){
+		var sendData = {
+			RA : [],
+			CA : [],
+			TA : [],
+			MAP : []
+		}
+	 	//RA,TAデータの準備
 	 	for(var y=0;y<indexCtrl.num.rows;y++){
 	 		for(var x=0;x<indexCtrl.num.cols;x++){
-	 			if(indexCtrl.data[y][x].status == 3){
-	 				data.TA.push({
+	 			if(indexCtrl.data[y][x].status == 2){
+	 				sendData.RA.push({
+	 					x:x,
+	 					y:y
+	 				});
+	 			}else if(indexCtrl.data[y][x].status == 3){
+	 				sendData.TA.push({
 	 					x:x,
 	 					y:y
 	 				});
 	 			}
+
 	 		}
 	 	}
-         console.log("TA");
-         console.dir(data.TA);
+        console.log("RA");
+        console.dir(sendData.RA);
+        console.log("TA");
+        console.dir(sendData.TA);
 
-         console.log("RA");
-         console.dir(data.RA);
-         
-	 	//以下ではdata.RAからAを作っている。xとyの情報だけあれば良い
-	 	for(var i = 0;i<data.RA.length;i++){
-            //console.log("insert!")
-	 		data.A.push({
-	 			x:data.RA[i].x,
-	 			y:data.RA[i].y
-	 		});
-	 	}
-         console.log("A");
-         console.dir(data.A);
-         
-        pathService.findPath(data)
-         .then(function(DA) {
-			console.log("DAが帰ってくる");
-			console.log(DA);
+		//MAP生成
+		for(var y=0;y<indexCtrl.num.rows;y++){
+			sendData.MAP[y] = [];
+			for(var x=0;x<indexCtrl.num.cols;x++){
+				if(indexCtrl.data[y][x].status == 1){
+					sendData.MAP[y][x] = 1;
+				}else{
+					sendData.MAP[y][x] = 0; 
+				}
+			}
+		}
+
+        pathService.findNetwork(sendData)
+         .then(function(data) {
+			console.log("帰ってきたデータ");
+			console.log(data);
+			for(var i = 0;i < data.DA.length;i++){
+				indexCtrl.data[data.DA[i].y][data.DA[i].x].status = 4;
+				indexCtrl.data[data.DA[i].y][data.DA[i].x].rect.attr(indexCtrl.style["DA"]);	
+			}
+			for(var i = 0;i < data.danger.length;i++){
+				//statusは3(TA)そのままでいいでしょう
+				indexCtrl.data[data.danger[i].y][data.danger[i].x].rect.attr(indexCtrl.style["danger"]);	
+			}
+			//結果を表示
+			indexCtrl.result =  "Used "+data.DA.length+" rescue and "+data.danger.length+"Target area could not be connected.";
+			alert(indexCtrl.result);
 		});
             
 	 };

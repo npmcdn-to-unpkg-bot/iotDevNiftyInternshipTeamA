@@ -1,0 +1,36 @@
+.setting{
+    position: absolute;
+    padding: 20px;
+    top : 50px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    cursor: default;
+    z-index: 1000;
+}
+.panel {
+    position: fixed;
+    padding: 20px;
+    top : 10px; 
+    right : 10px; 
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    cursor: default;
+    z-index: 1000;
+}
+.result{
+    position: absolute;
+    top : 50vh;
+    left : 10px; 
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    cursor: default;
+    z-index: 1000;
+}
