@@ -1,5 +1,5 @@
 //3は2へ
-var target = 'http://192.168.12.2:5000';
+var targetURL = 'http://192.168.12.2:5000';
 
 // 8番のGPIOピンを出力として登録
 var fs = require('fs'); 
@@ -13,7 +13,7 @@ function blink(){
 	fs.writeFileSync('/sys/class/gpio/gpio8/value', '1');
 	setTimeout(function(){
 		fs.writeFileSync('/sys/class/gpio/gpio8/value', '0');
-	},3000);
+	},5000);
 }
 
 
@@ -28,19 +28,21 @@ var request = require('request');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-function relaySend(message){
+function relaySend(data){
 	console.log("relaySend!");
-	request.post({url:target, form: {message:message}}, function(err,httpResponse,body){ 
+	console.log("data",data);
+	//console.log("target Kim",Kim,"Ohashi",Ohashi,"Kobayashi",Kobayashi);
+	request.post({url:targetURL, form: data}, function(err,httpResponse,body){ 
 	console.log(err);
 	 });
 }
 
 app.post('/', function(req, res) {
 	console.log("post");
-	console.dir(req.body.message);
-	if(req.body.message){
+	//console.dir(req.body.message);
+	if(req.body){
 		blink();
-		relaySend(req.body.message);	
+		relaySend(req.body);	
 	}
 });
 
