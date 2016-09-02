@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 
 var key = require("./config.json"); 
 
-key.eventName = "IoT_Intern_1";
+key.eventName = "IoT_Intern_Ohashi";
 
 app.set('port', (process.env.PORT || 5000));
  
