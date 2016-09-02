@@ -13,7 +13,7 @@ var sampleData = {
       },{
             "name":"新宿駅西口交番",
             "x":80,
-            "y":55
+            "y":40
       }
 	],
     "MAP":[[0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -107,7 +107,7 @@ function Controller(_,pathService) {
 		        'stroke-opacity': 0.2 // the border							
 			},
 			OB : {
-		        fill: 'gray',
+		        fill: 'black',
 		        'stroke-opacity': 0.2 // the border							
 			},
 			RA : {
@@ -123,7 +123,7 @@ function Controller(_,pathService) {
 		        'stroke-opacity': 0.2 // the border							
 			},
 			danger : {
-		        fill: 'black',
+		        fill: '#9b59b6',
 		        'stroke-opacity': 0.2 // the border							
 			}
 		}
@@ -317,7 +317,7 @@ function Controller(_,pathService) {
 			}
 			//結果を表示
 			indexCtrl.result =  data.DA.length+"個のマイコンが必要です。"+data.danger.length+"エリアがまだ通信圏外です。";
-			alert(indexCtrl.result);
+			//alert(indexCtrl.result);
 		});
             
 	 };
