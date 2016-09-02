@@ -16,21 +16,28 @@ angular.module('mobileApp.controllers', [])
 
   $scope.send = function(message,Kim,Ohashi,Kobayashi){
     console.log("send message : ",message);
-    var target = [];
+    var data = {};
+    data.message = message;
     if(Kim){
       console.log("to Kim");
-      target.push("Kim");
+      data.Kim = true;
+    }else{
+      data.Kim = false;
     }
     if(Ohashi){
       console.log("to Ohashi");
-      target.push("Ohashi");
+      data.Ohashi = true;
+    }else{
+      data.Ohashi = false;
     }
     if(Kobayashi){
       console.log("to Kobayashi");
-      target.push("Kobayashi");
+      data.Kobayashi = true;
+    }else{
+      data.Kobayashi = false;
     }
-
-    $http.post('http://192.168.12.3:5000',{message : message, target : target}).then(handleSuccess, handleError);
+    console.log("send data : ",data);
+    $http.post('http://192.168.12.3:5000',data).then(handleSuccess, handleError);
   };
 
   function handleSuccess(res) {
