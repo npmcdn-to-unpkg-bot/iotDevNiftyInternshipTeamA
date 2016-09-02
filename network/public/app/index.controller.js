@@ -119,7 +119,7 @@ function Controller(_,pathService) {
 		        'stroke-opacity': 0.2 // the border							
 			},
 			DA : {
-		        fill: 'blue',
+		        fill: '#3498db',
 		        'stroke-opacity': 0.2 // the border							
 			},
 			danger : {
@@ -316,7 +316,7 @@ function Controller(_,pathService) {
 				indexCtrl.data[data.danger[i].y][data.danger[i].x].rect.attr(indexCtrl.style["danger"]);	
 			}
 			//結果を表示
-			indexCtrl.result =  "Used "+data.DA.length+" rescue and "+data.danger.length+"Target area could not be connected.";
+			indexCtrl.result =  data.DA.length+"個のマイコンが必要です。"+data.danger.length+"エリアがまだ通信圏外です。";
 			alert(indexCtrl.result);
 		});
             

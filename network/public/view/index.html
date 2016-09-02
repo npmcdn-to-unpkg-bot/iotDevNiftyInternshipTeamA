@@ -17,21 +17,25 @@
 </div>
 <div id="grid">
 </div>
-<div ng-show="indexCtrl.result" class="result">
-	<h1>{{indexCtrl.result}}</h1>
-</div>	
-<div ng-hide="indexCtrl.settingPanel" class="setting">
-	<h2>マス目の細かさを設定(default 50)</h2>
-	<form>
-	  <div class="mdl-textfield mdl-js-textfield">
-	    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="detail" ng-model="indexCtrl.detailParam">
-	    <span class="mdl-textfield__error">Input is not a number!</span>
-	  </div>
-	</form>
-	<button ng-click="indexCtrl.generateGrid(indexCtrl.detailParam)" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-	  generate Grid
-	</button>
-	<button ng-click="indexCtrl.generateGrid()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-	  Generate(default)
-	</button>
-</div>
+<center>
+	<div ng-show="indexCtrl.result" class="result">
+		<h1>{{indexCtrl.result}}</h1>
+	</div>
+</center>	
+<center>
+	<div ng-hide="indexCtrl.settingPanel" class="setting">
+		<h2>横のマス目の数を指定して下さい。<br>デフォルトでは50マスに設定されています。</h2>
+		<form>
+		  <div class="mdl-textfield mdl-js-textfield">
+		    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="detail" ng-model="indexCtrl.detailParam">
+		    <span class="mdl-textfield__error">Input is not a number!</span>
+		  </div>
+		</form>
+		<button ng-click="indexCtrl.generateGrid(indexCtrl.detailParam)" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+		  generate Grid
+		</button>
+		<button ng-click="indexCtrl.generateGrid()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+		  Generate(default)
+		</button>
+	</div>
+</center>
