@@ -13,7 +13,6 @@ angular.module('mobileApp.controllers', [])
   $scope.Ohashi = 0;
   $scope.Kobayashi = 0;
 
-
   $scope.send = function(message,Kim,Ohashi,Kobayashi){
     console.log("send message : ",message);
     var data = {};
